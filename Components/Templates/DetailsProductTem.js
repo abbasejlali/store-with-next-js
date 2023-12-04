@@ -13,6 +13,10 @@ const DetailsProductTem = ({ data }) => {
     rating: { rate, count },
   } = data;
 
+  const AddToCart = () => {
+    console.log("cart");
+  };
+
   return (
     <div
       className="w-full h-full flex flex-row justify-between
