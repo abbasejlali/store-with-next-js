@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 // Modules
-import Button from "../Modules/Button";
+import BtnAddToCart from "../Modules/BtnAddToCart";
 
 const DetailsProductTem = ({ data }) => {
   const {
@@ -12,10 +12,6 @@ const DetailsProductTem = ({ data }) => {
     id,
     rating: { rate, count },
   } = data;
-
-  const AddToCart = () => {
-    console.log("cart");
-  };
 
   return (
     <div
@@ -43,7 +39,7 @@ const DetailsProductTem = ({ data }) => {
         </p>
         <h3 className="inline">Rating : {rate}</h3>
         <h3 className="inline">Amount : {count}</h3>
-        <Button title="Add To Cart" />
+        <BtnAddToCart productId={id} title="Add To Cart" />
       </div>
       <img
         src={image}

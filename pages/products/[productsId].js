@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 // Templates
@@ -6,7 +5,7 @@ import DetailsProductTem from "@/Components/Templates/DetailsProductTem";
 
 const DetailsProduct = ({ DetalisData }) => {
   const router = useRouter();
-  
+
   if (router.isFallback)
     return (
       <h2 className="fixed top-[50%] left-[50%] text-[30px] -translate-x-[50%] -translate-y-[50%] ">
