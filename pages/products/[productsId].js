@@ -2,9 +2,13 @@ import { useRouter } from "next/router";
 
 // Templates
 import DetailsProductTem from "@/Components/Templates/DetailsProductTem";
+import { useSelector } from "react-redux";
 
 const DetailsProduct = ({ DetalisData }) => {
   const router = useRouter();
+
+  const dataCart = useSelector((store) => store.cartHandeler.products);
+  console.log(dataCart);
 
   if (router.isFallback)
     return (
