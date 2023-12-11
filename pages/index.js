@@ -13,8 +13,14 @@ export async function getStaticProps() {
   const res = await fetch("https://fakestoreapi.com/products");
   const data = await res.json();
 
+  if (data.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: { data },
-    revalidate: 86400, //1d
+    revalidate: 10, //10s
   };
 }

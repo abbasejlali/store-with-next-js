@@ -4,7 +4,7 @@ import Cards from "../Modules/Cards";
 const HomePage = ({ data }) => {
   // Filters
   const PopularProducts = data.filter((product) => product.rating.rate >= 4);
-  const CheapestProducts = data.filter((product) => product.price >= 50);
+  const CheapestProducts = data.filter((product) => product.price <= 50);
 
   return (
     <>

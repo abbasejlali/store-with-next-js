@@ -8,9 +8,6 @@ const Menu = ({ children }) => {
           <li className="mr-4">
             <Link href="/">Home</Link>
           </li>
-          <li className="mr-4">
-            <Link href="/categorys">Categorys</Link>
-          </li>
           <li className="">
             <Link href="/products">Products</Link>
           </li>
