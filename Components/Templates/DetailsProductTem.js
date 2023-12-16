@@ -4,7 +4,7 @@ import Link from "next/link";
 import BtnAddToCart from "../Modules/BtnAddToCart";
 import { useRouter } from "next/router";
 
-const DetailsProductTem = ({ data }) => {
+const DetailsProductTem = ({ data, dataUser }) => {
   const {
     image,
     title,
@@ -53,7 +53,7 @@ const DetailsProductTem = ({ data }) => {
         </p>
         <h3 className="inline">Rating : {rate}</h3>
         <h3 className="inline mb-8">Amount : {count}</h3>
-        <BtnAddToCart title="Add To Cart" />
+        <BtnAddToCart title="Add To Cart" dataUser={dataUser} />
       </div>
       <img
         src={image}

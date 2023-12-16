@@ -36,6 +36,23 @@ const ProductsPage = ({ data }) => {
     }
   }, [router.query]);
 
+  // sasasasas
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const totalPages2 = Math.ceil(dataCutomize.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  let startIndex = (currentPage - 1) * itemsPerPage;
+  let endIndex = startIndex + itemsPerPage;
+  let DataItems = data.slice(startIndex, endIndex);
+  let DataCutomizeItems = dataCutomize.slice(startIndex, endIndex) || null;
+
   return (
     <div className="w-[95%] flex-wrap sm:flex-nowrap	 mx-auto my-[30px] flex flex-row justify-between items-start ">
       <div
@@ -54,13 +71,32 @@ const ProductsPage = ({ data }) => {
       >
         {data.length > 0 ? (
           dataCutomize.length > 0 ? (
-            <Card data={dataCutomize} wrap={true} />
+            <Card data={DataCutomizeItems} wrap={true} />
           ) : (
-            <Card data={data} wrap={true} />
+            <Card data={DataItems} wrap={true} />
           )
         ) : (
           <h2>Loading</h2>
         )}
+      </div>
+
+      <div className="fixed bottom-[30px] left-[40px] flex flex-row justify-center items-center w-fit h-fit ">
+        {Array.from(
+          { length: `${dataCutomize.length > 0 ? totalPages2 : totalPages}` },
+          (_, i) => i + 1
+        ).map((pageNumber) => (
+          <button
+            key={pageNumber}
+            onClick={() => handlePageChange(pageNumber)}
+            className={`${
+              pageNumber === currentPage ? "bg-[#ffde36] " : "bg-white"
+            }  px-4 py-2 
+            rounded-md shodow-sm mr-3
+          `}
+          >
+            {pageNumber}
+          </button>
+        ))}
       </div>
     </div>
   );
